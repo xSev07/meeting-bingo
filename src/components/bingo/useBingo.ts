@@ -1,44 +1,27 @@
 import {MATRIX_SIZE, phrases} from "../../consts/common";
-
-interface ICell {
-    text: string,
-    checked: boolean,
-}
-
-const getCoordinatesInMatrixByIndex = (index: number, size: number): {x: number, y: number} => {
-    const x = Math.floor(index / size);
-    const y = index % size;
-
-    return {x, y};
-}
-
-const prepareMatrix = () => {
-    const MATRIX_CENTER = Math.floor(MATRIX_SIZE / 2);
-    const copyPhrases = phrases.slice().sort(() => Math.random() - 0.5);
-    const res = new Array<Array<ICell>>();
-    for (let i = 0; i < MATRIX_SIZE; i++) {
-        let row = Array<ICell>();
-        for (let j = 0; j < MATRIX_SIZE; j++) {
-            if (i === MATRIX_CENTER && j === MATRIX_CENTER) {
-                row.push({text: 'CONF CALL BINGO', checked: true});
-
-            } else {
-                row.push({text: copyPhrases.pop() || '', checked: false});
-            }
-        }
-        res.push(row);
-    }
-
-    return res;
-}
-
-const getCells = () => {
-    return prepareMatrix().flat();
-};
+import {useState} from "react";
+import {getCoordinatesInMatrixByIndex, isMatrixCenter, prepareMatrix} from "../../utils/matrix";
 
 export const useBingo = () => {
+    const [matrix, setMatrix] = useState(prepareMatrix(phrases));
+
+    const getCells = () => {
+        return matrix.flat();
+    };
+
     const cellClickHandler = (index: number): void => {
-        const {x, y} = getCoordinatesInMatrixByIndex(index, 5);
+        const {x, y} = getCoordinatesInMatrixByIndex(index, MATRIX_SIZE);
+        if (isMatrixCenter(x, y)) {
+            return
+        }
+
+        setMatrix((prevState) => {
+            const newValue = Object.assign({}, prevState[x][y], {checked: !prevState[x][y].checked});
+            const newRow = [...prevState[x].slice(0, y), newValue, ...prevState[x].slice(y+1)];
+            const newMatrix = [...prevState.slice(0, x), newRow, ...prevState.slice(x+1)];
+
+            return newMatrix;
+        })
     };
 
     return {

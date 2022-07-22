@@ -26,3 +26,4 @@ export const phrases: Array<string> = [
 ];
 
 export const MATRIX_SIZE = 5;
+export const MATRIX_CENTER = Math.floor(MATRIX_SIZE / 2);
