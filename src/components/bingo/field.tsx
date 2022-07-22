@@ -1,17 +1,19 @@
 import React from 'react';
 import './bingo.css';
+import {useBingo} from "./useBingo";
 
 export const BingoField = () => {
-    const cells = new Array();
-    for (let i = 0; i < 25; i++) {
-        cells.push(i)
-    }
+    const {cells, cellClickHandler} = useBingo();
     return (
         <article className='bingo'>
             <div className='bingo__field'>
-                {cells.map((it) => (
-                    <button className='bingo__cell'>
-                        <p className='bingo__text'>{++it}</p>
+                {cells.map((it, index) => (
+                    <button
+                        key={it}
+                        className='bingo__cell'
+                        onClick={() => cellClickHandler(index)}
+                    >
+                        <p className='bingo__text'>{it}</p>
                     </button>
                 ))}
             </div>
