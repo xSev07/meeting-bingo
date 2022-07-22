@@ -1,0 +1,34 @@
+.bingo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.bingo__field {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    width: 90vw;
+    height: 90vh;
+    border: 1px solid black;
+}
+
+.bingo__cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    background-color: transparent;
+}
+
+.bingo__cell--active {
+    background-color: blue;
+    color: white;
+}
+
+.bingo__text {
+    margin: 1rem 2rem;
+    font-size: 1.2rem;
+}
