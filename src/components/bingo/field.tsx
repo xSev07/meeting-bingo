@@ -7,13 +7,13 @@ export const BingoField = () => {
     return (
         <article className='bingo'>
             <div className='bingo__field'>
-                {cells.map((it, index) => (
+                {cells.map(({text, checked}, index) => (
                     <button
-                        key={it}
-                        className='bingo__cell'
+                        key={text}
+                        className={`bingo__cell ${checked && 'bingo__cell--active'}`}
                         onClick={() => cellClickHandler(index)}
                     >
-                        <p className='bingo__text'>{it}</p>
+                        <p className='bingo__text'>{text}</p>
                     </button>
                 ))}
             </div>
