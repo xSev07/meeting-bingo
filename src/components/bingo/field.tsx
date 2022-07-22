@@ -3,10 +3,10 @@ import './bingo.css';
 import {useBingo} from "./useBingo";
 
 export const BingoField = () => {
-    const {cells, cellClickHandler} = useBingo();
+    const {isWin, cells, cellClickHandler} = useBingo();
     return (
         <article className='bingo'>
-            <div className='bingo__field'>
+            <div className='bingo__field bingo__field--animate'>
                 {cells.map(({text, checked}, index) => (
                     <button
                         key={text}
@@ -17,6 +17,13 @@ export const BingoField = () => {
                     </button>
                 ))}
             </div>
+            {isWin &&
+                <div className='bingo__win-wrapper'>
+                    <div className='bingo__win'>
+                        <p className='bingo__congrat-text'>You win!</p>
+                    </div>
+                </div>
+            }
         </article>
     );
 }

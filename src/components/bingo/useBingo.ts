@@ -6,6 +6,7 @@ import {replaceElementInArray} from "../../utils/common";
 export const useBingo = () => {
     const [matrix, setMatrix] = useState(prepareMatrix(phrases));
     const [lastClick, setLastClick] = useState({x: MATRIX_CENTER, y: MATRIX_CENTER});
+    const [isWin, setIsWin] = useState(false);
 
     const getCells = () => {
         return matrix.flat();
@@ -39,10 +40,10 @@ export const useBingo = () => {
                 }
             }
 
-            if (win) alert('win');
+            if (win) setIsWin(true);
         }
-        if (matrix[x].every((it) => it.checked)) alert('win'); // check rows
-        if (matrix.every((it) => it[y].checked)) alert('win'); // check columns
+        if (matrix[x].every((it) => it.checked)) setIsWin(true); // check rows
+        if (matrix.every((it) => it[y].checked)) setIsWin(true); // check columns
 
     }, [matrix]);
 
@@ -52,6 +53,7 @@ export const useBingo = () => {
     };
 
     return {
+        isWin,
         cells: getCells(),
         cellClickHandler,
     }
