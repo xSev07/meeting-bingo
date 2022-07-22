@@ -11,12 +11,6 @@ export const useBingo = () => {
         return matrix.flat();
     };
 
-    // const checkVertical = () => {
-    //     for (let i = 0; i < ; i++) {
-    //
-    //     }
-    // }
-
     useEffect(() => {
         const {x, y} = lastClick;
         if (isMatrixCenter(x, y)) {
@@ -36,11 +30,19 @@ export const useBingo = () => {
         const {x, y} = lastClick;
         // check diagonal
         if (x === y || x + y === MATRIX_SIZE - 1) {
-            console.log(1)
+            let win = true;
+
+            for (let i = 0; i < MATRIX_SIZE; i++) {
+                if (!matrix[i][x === y ? i : MATRIX_SIZE - 1 - i].checked) {
+                    win = false;
+                    break;
+                }
+            }
+
+            if (win) alert('win');
         }
         if (matrix[x].every((it) => it.checked)) alert('win'); // check rows
         if (matrix.every((it) => it[y].checked)) alert('win'); // check columns
-
 
     }, [matrix]);
 
