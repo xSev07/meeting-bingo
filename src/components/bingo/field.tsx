@@ -1,20 +1,22 @@
 import React from 'react';
 import './bingo.css';
+import { Cell } from './cell';
 import {useBingo} from "./useBingo";
 
 export const BingoField = () => {
     const {isWin, cells, cellClickHandler} = useBingo();
+
     return (
         <article className='bingo'>
             <div className='bingo__field bingo__field--animate'>
                 {cells.map(({text, checked}, index) => (
-                    <button
-                        key={text}
-                        className={`bingo__cell ${checked && 'bingo__cell--active'}`}
-                        onClick={() => cellClickHandler(index)}
-                    >
-                        <p className='bingo__text'>{text}</p>
-                    </button>
+                    <Cell
+                        key={index} // т.к. эти данные не изменяются, то можно использовать index
+                        text={text}
+                        checked={checked}
+                        index={index}
+                        onClick={cellClickHandler}
+                    />
                 ))}
             </div>
             {isWin &&
