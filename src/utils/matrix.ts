@@ -1,4 +1,5 @@
 import {MATRIX_CENTER, MATRIX_SIZE} from "../consts/common";
+import {replaceElementInArray} from "./common";
 
 interface ICell {
     text: string,
@@ -13,7 +14,7 @@ export const getCoordinatesInMatrixByIndex = (index: number, size: number): { x:
 }
 
 export const isMatrixCenter = (x: number, y: number): boolean => {
-    return x === MATRIX_CENTER && y === MATRIX_CENTER
+    return x === MATRIX_CENTER && y === MATRIX_CENTER;
 }
 
 export const prepareMatrix = (values: Array<string>) => {
