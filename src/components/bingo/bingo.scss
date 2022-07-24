@@ -2,6 +2,8 @@ $main-color: blue;
 $spark-color: gold;
 $md: 900px;
 
+$grid-size: 5;
+
 .bingo {
   display: flex;
   justify-content: center;
@@ -11,8 +13,8 @@ $md: 900px;
 
   &__field {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat($grid-size, 1fr);
+    grid-template-rows: repeat($grid-size, 1fr);
     width: 790px;
     height: 790px;
 

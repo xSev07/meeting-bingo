@@ -25,5 +25,5 @@ export const phrases: Array<string> = [
     'Sorry, I didn\'t found the conference id',
 ];
 
-export const MATRIX_SIZE = 5;
+export const MATRIX_SIZE = Math.floor(Math.sqrt(phrases.length + 1));
 export const MATRIX_CENTER = Math.floor(MATRIX_SIZE / 2);
