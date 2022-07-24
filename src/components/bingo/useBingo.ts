@@ -41,9 +41,11 @@ export const useBingo = () => {
             }
 
             if (win) setIsWin(true);
+        } else if (matrix[x].every((it) => it.checked)) { // check rows
+            setIsWin(true);
+        } else if (matrix.every((it) => it[y].checked)) { // check columns
+            setIsWin(true);
         }
-        if (matrix[x].every((it) => it.checked)) setIsWin(true); // check rows
-        if (matrix.every((it) => it[y].checked)) setIsWin(true); // check columns
 
     }, [matrix]);
 

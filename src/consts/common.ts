@@ -1,6 +1,6 @@
 export const phrases: Array<string> = [
-    '* Animal noises in the background',
-    '* Child noises in the background',
+    '* Animal noises in the background *',
+    '* Child noises in the background *',
     'Who just joined?',
     'Can everyone go on mute?',
     'Sorry, something with my calendar',
