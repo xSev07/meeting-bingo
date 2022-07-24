@@ -10,15 +10,15 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    width: 90vw;
-    height: 90vh;
+    width: 790px;
+    height: 790px;
 
     border: 1px solid black;
     box-shadow: 0 2px 25px rgba(15, 10, 222, 0.5);
 }
 
 .bingo__text {
-    margin: 1rem 2rem;
+    margin: 1rem;
     font-size: 1.2rem;
 }
 
