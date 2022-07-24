@@ -3,8 +3,10 @@ import {useEffect, useState} from "react";
 import {getCoordinatesInMatrixByIndex, isMatrixCenter, prepareMatrix} from "../../utils/matrix";
 import {replaceElementInArray} from "../../utils/common";
 
+const defaultMatrix = prepareMatrix(phrases);
+
 export const useBingo = () => {
-    const [matrix, setMatrix] = useState(prepareMatrix(phrases));
+    const [matrix, setMatrix] = useState(defaultMatrix);
     const [lastClick, setLastClick] = useState({x: MATRIX_CENTER, y: MATRIX_CENTER});
     const [isWin, setIsWin] = useState(false);
 

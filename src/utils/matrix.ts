@@ -1,5 +1,4 @@
 import {MATRIX_CENTER, MATRIX_SIZE} from "../consts/common";
-import {replaceElementInArray} from "./common";
 
 interface ICell {
     text: string,
