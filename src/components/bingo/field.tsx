@@ -1,5 +1,5 @@
 import React from 'react';
-import './bingo.css';
+import './bingo.scss';
 import { Cell } from './cell';
 import {useBingo} from "./useBingo";
 
