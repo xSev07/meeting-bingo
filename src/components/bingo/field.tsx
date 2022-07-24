@@ -8,7 +8,7 @@ export const BingoField = () => {
 
     return (
         <article className='bingo'>
-            <div className='bingo__field bingo__field--animate'>
+            <div className='bingo__field'>
                 {cells.map(({text, checked}, index) => (
                     <Cell
                         key={index} // т.к. эти данные не изменяются, то можно использовать index

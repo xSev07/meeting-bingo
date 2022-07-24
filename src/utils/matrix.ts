@@ -24,7 +24,6 @@ export const prepareMatrix = (values: Array<string>) => {
         for (let j = 0; j < MATRIX_SIZE; j++) {
             if (isMatrixCenter(i, j)) {
                 row.push({text: 'CONF CALL BINGO', checked: true});
-
             } else {
                 row.push({text: randomizedValues.pop() || '', checked: false});
             }

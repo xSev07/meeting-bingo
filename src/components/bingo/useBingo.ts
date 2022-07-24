@@ -7,12 +7,13 @@ const defaultMatrix = prepareMatrix(phrases);
 
 export const useBingo = () => {
     const [matrix, setMatrix] = useState(defaultMatrix);
+    const [cells, setCells] = useState(matrix.flat());
     const [lastClick, setLastClick] = useState({x: MATRIX_CENTER, y: MATRIX_CENTER});
     const [isWin, setIsWin] = useState(false);
 
-    const getCells = () => {
-        return matrix.flat();
-    };
+    useEffect(() => {
+        setCells(matrix.flat());
+    }, [matrix])
 
     useEffect(() => {
         const {x, y} = lastClick;
@@ -58,7 +59,7 @@ export const useBingo = () => {
 
     return {
         isWin,
-        cells: getCells(),
+        cells,
         cellClickHandler,
     }
 }
