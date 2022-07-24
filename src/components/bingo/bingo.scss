@@ -1,3 +1,6 @@
+$main-color: blue;
+$spark-color: gold;
+
 .bingo {
   display: flex;
   justify-content: center;
@@ -13,7 +16,7 @@
     height: 790px;
 
     border: 1px solid black;
-    box-shadow: 0 2px 25px rgba(15, 10, 222, 0.5);
+    box-shadow: 0 2px 25px lighten($main-color, 20);
   }
 
   &__text {
@@ -49,13 +52,13 @@
       left: 0;
       width: 0;
       height: 100%;
-      background-color: blue;
+      background-color: $main-color;
       transition: all .3s;
       z-index: -1;
     }
 
     &--active {
-      background-color: blue;
+      background-color: $main-color;
       color: white;
 
       &:before {
@@ -105,15 +108,15 @@
 
     &:before {
       top: -75%;
-      background-image: radial-gradient(circle, gold 20%, transparent 20%),
-      radial-gradient(circle, transparent 20%, gold 20%, transparent 30%),
-      radial-gradient(circle, gold 20%, transparent 20%),
-      radial-gradient(circle, gold 20%, transparent 20%),
-      radial-gradient(circle, transparent 10%, gold 15%, transparent 20%),
-      radial-gradient(circle, gold 20%, transparent 20%),
-      radial-gradient(circle, gold 20%, transparent 20%),
-      radial-gradient(circle, gold 20%, transparent 20%),
-      radial-gradient(circle, gold 20%, transparent 20%);
+      background-image: radial-gradient(circle, $spark-color 20%, transparent 20%),
+      radial-gradient(circle, transparent 20%, $spark-color 20%, transparent 30%),
+      radial-gradient(circle, $spark-color 20%, transparent 20%),
+      radial-gradient(circle, $spark-color 20%, transparent 20%),
+      radial-gradient(circle, transparent 10%, $spark-color 15%, transparent 20%),
+      radial-gradient(circle, $spark-color 20%, transparent 20%),
+      radial-gradient(circle, $spark-color 20%, transparent 20%),
+      radial-gradient(circle, $spark-color 20%, transparent 20%),
+      radial-gradient(circle, $spark-color 20%, transparent 20%);
       background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
       animation: topBubbles ease-in-out 1s forwards;
 
@@ -121,13 +124,13 @@
 
     &:after {
       bottom: -75%;
-      background-image: radial-gradient(circle, gold 20%, transparent 20%),
-      radial-gradient(circle, gold 20%, transparent 20%),
-      radial-gradient(circle, transparent 10%, gold 15%, transparent 20%),
-      radial-gradient(circle, gold 20%, transparent 20%),
-      radial-gradient(circle, gold 20%, transparent 20%),
-      radial-gradient(circle, gold 20%, transparent 20%),
-      radial-gradient(circle, gold 20%, transparent 20%);
+      background-image: radial-gradient(circle, $spark-color 20%, transparent 20%),
+      radial-gradient(circle, $spark-color 20%, transparent 20%),
+      radial-gradient(circle, transparent 10%, $spark-color 15%, transparent 20%),
+      radial-gradient(circle, $spark-color 20%, transparent 20%),
+      radial-gradient(circle, $spark-color 20%, transparent 20%),
+      radial-gradient(circle, $spark-color 20%, transparent 20%),
+      radial-gradient(circle, $spark-color 20%, transparent 20%);
       background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
       animation: bottomBubbles ease-in-out 1s forwards;
     }
@@ -140,7 +143,7 @@
 
     font-size: 3rem;
     font-weight: bold;
-    color: blue;
+    color: $main-color;
     text-transform: uppercase;
 
     &:before {
