@@ -1,5 +1,6 @@
 $main-color: blue;
 $spark-color: gold;
+$md: 900px;
 
 .bingo {
   display: flex;
@@ -163,6 +164,29 @@ $spark-color: gold;
       animation-timing-function: linear;
       animation-iteration-count: infinite;
       animation-direction: alternate;
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .bingo {
+    &__field {
+      width: 90vw;
+      height: 90vh;
+    }
+
+    &__text {
+      margin: 0.2rem;
+      font-size: 1rem;
+    }
+
+    &__win {
+      min-width: auto;
+      min-height: auto;
+    }
+
+    &__congrat-text {
+      font-size: 2rem;
     }
   }
 }
