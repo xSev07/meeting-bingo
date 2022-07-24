@@ -7,8 +7,9 @@ interface ICell {
     onClick: Function,
 }
 
-export const Cell: React.FC<ICell> = (props) => {
+export const Cell: React.FC<ICell> = React.memo((props) => {
     const {text, checked, index, onClick} = props;
+
     return (
         <button
             className={`bingo__cell ${checked && 'bingo__cell--active'}`}
@@ -17,4 +18,4 @@ export const Cell: React.FC<ICell> = (props) => {
             <p className='bingo__text'>{text}</p>
         </button>
     );
-}
+})

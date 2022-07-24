@@ -1,5 +1,5 @@
 import {MATRIX_CENTER, MATRIX_SIZE, phrases} from "../../consts/common";
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {getCoordinatesInMatrixByIndex, isMatrixCenter, prepareMatrix} from "../../utils/matrix";
 import {replaceElementInArray} from "../../utils/common";
 
@@ -51,10 +51,10 @@ export const useBingo = () => {
 
     }, [matrix]);
 
-    const cellClickHandler = (index: number): void => {
+    const cellClickHandler = useCallback((index: number): void => {
         const {x, y} = getCoordinatesInMatrixByIndex(index, MATRIX_SIZE);
         setLastClick({x, y});
-    };
+    }, []);
 
     return {
         isWin,
